@@ -9,15 +9,29 @@ rabbitmq:
   virtual-host: /
 
 keycloak:
-  auth-server-url: http://localhost:8080
+  auth-server-url: ${KEYCLOAK_SERVER}
   ssl-required: none #use external in production
-  realm: master
-  resource: admin-cli
+  realm: ${KEYCLOAK_REALM}
+  resource: ${KEYCLOAK_CLIENT_ID}
   bearer-only: true
   confidential-port: 0
   use-resource-role-mappings: false
   principal-attribute: preferred_username
   cors: true
   credential:
-    username: milena
-    password: milena
+    username: ${KEYCLOAK_USERNAME}
+    password: ${KEYCLOAK_PASSWORD}
+
+#keycloak:
+#  auth-server-url: http://localhost:8080
+#  ssl-required: none #use external in production
+#  realm: master
+#  resource: admin-cli
+#  bearer-only: true
+#  confidential-port: 0
+#  use-resource-role-mappings: false
+#  principal-attribute: preferred_username
+#  cors: true
+#  credential:
+#    username: milena
+#    password: milena
